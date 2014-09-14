@@ -12,6 +12,7 @@
     "email": "xavier.watkins@gmail.com"
   },
   "dependencies": {
+    "request":"2.42.x",
     "timbre":"14.6.x"
   },
   "devDependencies": {

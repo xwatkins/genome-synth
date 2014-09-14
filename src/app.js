@@ -1,13 +1,9 @@
 var T = require('timbre');
+var request = require('request');
+var dict = require('./dict.json');
 
-var sequence = 'TAACTGACTCTGCTGTGTTTCCTTGGCATTATAGCTAATCAAATTGAGCAGGTCAGGTAACAGTTTATACTTACACCTACTATTTCAAAACCATGAGCTCATTCACATTTTCACTGAAGTAACAAATCCTCCATAAACTAGAAAATCTCAAACTGGTGACTGGGAGTTTTGGTTTTGTTTTTTTGTTGTTTTATTTTATTTTATTTTATTTTCTAGATGGAGTCTTGCTCTGTTGCCCAGGCTGGATGCAATGGCATGATCTCAGCTCACTGCAACCTCCACCTTTCGGGTTCAAGCAATCCTCCTGCCTCAATCTTCCAAGTAGCTGGGACTACAGGAATGAGCTGCCGCACCTGGCC'.split('');
-var mapping =  [];
-mapping['A'] = 69;
-mapping['T'] = 71;
-mapping['G'] = 74;
-mapping['C'] = 76;
-var lastNote;
-
+var lastNote = "G";
+console.log(dict[lastNote]);
 var synth = T("SynthDef").play();
 
 synth.def = function(opts) {
@@ -24,10 +20,29 @@ synth.def = function(opts) {
 	return vca;
 };
 
-T("interval", {interval:1200}, function(count) {
-	synth.allSoundOff();
-	var noteNum  = mapping[sequence[count]];
-	var velocity = 64;
-	synth.noteOn(noteNum, velocity);
-	lastNote = noteNum;
-}).start();
+var playSequence = function(sequence) {
+	var sequenceArray = sequence.split('');
+	T("interval", {interval:1200}, function(count) {
+		synth.allSoundOff();
+		synth.noteOff(lastNote)
+		var noteNum  = dict[sequenceArray[count]];
+		var velocity = 64;
+		synth.noteOn(noteNum, velocity);
+		lastNote = noteNum;
+	}).start();
+}
+
+var sequenceService = function(proteinId) {
+	request('http://www.uniprot.org/uniprot/' + proteinId + '.fasta', function(error, resp, body){
+		console.log(parseFASTA(body));
+		playSequence(parseFASTA(body));
+	});
+}
+
+var parseFASTA = function(fasta) {
+	var lines = fasta.split('\n');
+	lines.splice(0,1);
+	return(lines.join(''));
+}
+
+sequenceService('Q9UBP0');

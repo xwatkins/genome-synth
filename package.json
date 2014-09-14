@@ -1,0 +1,26 @@
+{
+  "name": "genome-synth", 
+  "description": "Sounds of the genome", 
+  "version": "0.0.1",
+  "homepage": "http://github.com/xwatkins/genome-synth", 
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/xwatkins/genome-synth"
+  },
+  "author": {
+    "name": "Xavier Watkins", 
+    "email": "xavier.watkins@gmail.com"
+  },
+  "dependencies": {
+    "timbre":"14.6.x"
+  },
+  "devDependencies": {
+  },
+  "keywords": [
+    ""
+  ],
+  "main": "./app.js", 
+  "scripts": {
+  },
+  "license": "Apache 2"
+}

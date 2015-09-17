@@ -23,41 +23,55 @@
 
 
       <div class="container">
-        <div class="btn-group pull-right" role="group">
-          <a id="start-button" href="#" class="btn btn-default" role="button">Start</a><a id="stop-button" href="#" class="btn btn-default" role="button">Stop</a>
+        <div role="group">
+          <ul class="list-inline">
+            <li>
+              <h4>Speed</h4>
+              <input id="speed-k" type="text" class="dial">
+            </li>
+            <li>
+              <a id="button" href="#" class="btn btn-default" role="button">Stop</a>
+            </li>
+          </ul>
+
         </div>
-        <h1>Sounds of the Genome</h1>
-        <p><b>AVPR1a</b>: One of Homo Sapiens’ strongest adaptations for survival is our social-bonding, our willingness to sacrifice our own well-being for the community and work together for common goals. A variant of AVPR1a appears to have a strong influence on this behavior. Nicknamed the “altruism gene,” it is also found in other species that exhibit strong social bonds. (Another variation of this same gene leads to ruthless behavior, earning it a “ruthless gene” nickname.)</p>
+        <h1>Sounds of Empathy</h1>
+        <div id="desc">
+          <p>One of the main characteristics which defines us as human beings is our ability for social-bonding and working together to achieve common goals. The <b>AVPR1a</b> gene has been shown to play a role in this behaviour. Nicknamed the “altruism gene,” it has also been identified in other species that exhibit strong social bonds. A variant of this gene seems to lead to ruthless behaviour.</p>
+          <p>Read more about the project <a href="http://xavwatk.in/first-version-of-the-genome-synth/">here</a></p>
+        </div>
+
+        <div id="vis">
           <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Human</h3>
               <h1 id="human-seq"></h1>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Rat</h3>
               <h1 id="rat-seq"></h1>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Mouse</h3>
               <h1 id="mouse-seq"></h1>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Montane vole</h3>
               <h1 id="montane-seq"></h1>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Prairie vole</h3>
               <h1 id="prairie-seq"></h1>
             </div>
-            <div class="col-md-4 text-center">
+            <div class="col-sm-4  text-center">
               <h3>Sheep</h3>
               <h1 id="sheep-seq"></h1>
             </div>
           </div>
         </div>
-
+      </div>
       </div>
       <footer class="footer text-center">&copy;2015 <a href="mailto:xavier.watkins@gmail.com">Xavier Watkins</a> | Runs on <a href="https://github.com/TONEnoTONE/Tone.js/">Tone.js</a> | Data from <a href="www.uniprot.org">UniProt</a></footer>
 
@@ -68,6 +82,7 @@
       <script src="bower_components/jquery/dist/jquery.js"></script>
       <script src="bower_components/tone/build/Tone.js"></script>
       <script src="bower_components/d3/d3.js"></script>
+      <script src="bower_components/jquery-knob/js/jquery.knob.js"></script>
       <!-- endbower -->
       <!-- endbuild -->
 
@@ -78,7 +93,7 @@
       e=o.createElement(i);r=o.getElementsByTagName(i)[0];
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+      ga('create','UA-60779137-1');ga('send','pageview');
       </script>
 
       <!-- Other scripts -->

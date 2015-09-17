@@ -64,30 +64,23 @@ body {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
 
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
 
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.container {
+  margin-bottom: 1em;
 }
 
-.col-md-4.text-center {
+.col-sm-4.text-center h1{
+  color:#fff;
   min-height: 200px;
+  line-height: 200px;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .col-sm-4.text-center h1{
+    min-height: 50px;
+    line-height: 50px;
+  }
+  
 }

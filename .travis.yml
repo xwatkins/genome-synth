@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "stable"
+before_install:
+  - npm install -g grunt-cli
+  - npm install -g bower
+install: npm install
+before_script: 
+  - bower install
+script: grunt build
